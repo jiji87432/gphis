@@ -9,11 +9,21 @@
 ## <a name="pkg-overview">Overview</a>
 gphis/idauth - Identity Authentication 身份认证模块
 
+身份认证模块定义了接口IAuth, 所有实现了该接口的结构均可用于进行身份认证,
+Authenticate函数返回的两个参数是: bool类型的认证是否成功, string类型的用户ID.
+
+定义了统一登录消息响应格式AuthResp, 其中, Success字段表示当前登录是否成功,
+Response字段表示登录的返回信息. 在Login中, Response正常情况下会返回登录token.
+
+登录token是用于状态管理的一个字符串, 产生方式是md5(时间+id).
+
+Check函数用户检测token合法性, 成功则返回校验的bool值以及用户id.
+
 
 
 
 ## <a name="pkg-index">Index</a>
-* [func Check(token string) bool](#Check)
+* [func Check(token string) (bool, string)](#Check)
 * [func Login(ia IAuth) (string, error)](#Login)
 * [func Logout(token string) (string, error)](#Logout)
 * [type AuthResp](#AuthResp)
@@ -27,32 +37,32 @@ gphis/idauth - Identity Authentication 身份认证模块
 
 
 
-## <a name="Check">func</a> [Check](/src/target/idauth.go?s=1747:1776#L68)
+## <a name="Check">func</a> [Check](/src/target/idauth.go?s=2427:2466#L87)
 ``` go
-func Check(token string) bool
+func Check(token string) (bool, string)
 ```
-Check: 校验token是否合法
+校验token是否合法
 
 
 
-## <a name="Login">func</a> [Login](/src/target/idauth.go?s=622:658#L27)
+## <a name="Login">func</a> [Login](/src/target/idauth.go?s=1234:1270#L37)
 ``` go
 func Login(ia IAuth) (string, error)
 ```
-Login: 登录函数
+登录函数
 
 
 
-## <a name="Logout">func</a> [Logout](/src/target/idauth.go?s=1183:1224#L48)
+## <a name="Logout">func</a> [Logout](/src/target/idauth.go?s=1866:1907#L65)
 ``` go
 func Logout(token string) (string, error)
 ```
-Logout: 退出函数
+退出函数
 
 
 
 
-## <a name="AuthResp">type</a> [AuthResp](/src/target/idauth.go?s=221:317#L8)
+## <a name="AuthResp">type</a> [AuthResp](/src/target/idauth.go?s=840:936#L18)
 ``` go
 type AuthResp struct {
     Success  bool   `json:"success"`
@@ -70,7 +80,7 @@ type AuthResp struct {
 
 
 
-## <a name="IAuth">type</a> [IAuth](/src/target/idauth.go?s=537:594#L22)
+## <a name="IAuth">type</a> [IAuth](/src/target/idauth.go?s=1156:1213#L32)
 ``` go
 type IAuth interface {
     Authenticate() (bool, string)

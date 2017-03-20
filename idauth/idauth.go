@@ -1,4 +1,14 @@
 // gphis/idauth - Identity Authentication 身份认证模块
+//
+// 身份认证模块定义了接口IAuth, 所有实现了该接口的结构均可用于进行身份认证,
+// Authenticate函数返回的两个参数是: bool类型的认证是否成功, string类型的用户ID.
+//
+// 定义了统一登录消息响应格式AuthResp, 其中, Success字段表示当前登录是否成功,
+// Response字段表示登录的返回信息. 在Login中, Response正常情况下会返回登录token.
+//
+// 登录token是用于状态管理的一个字符串, 产生方式是md5(时间+id).
+//
+// Check函数用户检测token合法性, 成功则返回校验的bool值以及用户id.
 package idauth
 
 import (
@@ -33,15 +43,21 @@ type IAuth interface {
 	Authenticate() (bool, string)
 }
 
-// Login: 登录函数
+// 登录函数
 func Login(ia IAuth) (string, error) {
 	ok, id := ia.Authenticate()
 	if ok == true {
+		tmp := id2Token(id)
+		if tmp != "" {
+			delete(tokenList, tmp)
+		}
+
 		token := getToken(id)
 		rstmp, err := json.Marshal(&AuthResp{Success: true, Response: token})
 		if err != nil {
 			return "", fmt.Errorf("Login error: %v", err)
 		}
+
 		tokenList[token] = id
 		writeFile()
 		return string(rstmp), nil
@@ -50,11 +66,12 @@ func Login(ia IAuth) (string, error) {
 		if err != nil {
 			return "", fmt.Errorf("Login error: %v", err)
 		}
+
 		return string(rstmp), nil
 	}
 }
 
-// Logout: 退出函数
+// 退出函数
 func Logout(token string) (string, error) {
 	_, ok := tokenList[token]
 	if ok == false {
@@ -62,6 +79,7 @@ func Logout(token string) (string, error) {
 		if err != nil {
 			return "", fmt.Errorf("Logout error: %v", err)
 		}
+
 		return string(rstmp), nil
 	} else {
 		delete(tokenList, token)
@@ -70,22 +88,28 @@ func Logout(token string) (string, error) {
 		if err != nil {
 			return "", fmt.Errorf("Logout error: %v", err)
 		}
+
 		return string(rst), nil
 	}
 }
 
-// Check: 校验token是否合法
-func Check(token string) bool {
-	_, ok := tokenList[token]
-	return ok
+// 校验token是否合法
+func Check(token string) (bool, string) {
+	rst, ok := tokenList[token]
+
+	if ok == true {
+		return ok, rst
+	} else {
+		return ok, ""
+	}
 }
 
-// getToken: 获取状态token
+// 获取状态token
 func getToken(id string) string {
 	return utils.MD5([]byte(time.Now().Format("20060102150405") + id))
 }
 
-// initDir: 本地文件存储目录初始化
+// 本地文件存储目录初始化
 func initDir() {
 	_, err := os.Stat("/gphis/idauth")
 	if err != nil {
@@ -107,7 +131,7 @@ func writeFile() {
 	defer file.Close()
 
 	if err != nil {
-		log.Printf("写入文件失败: %v", err)
+		log.Printf("(低错误级别)写入文件失败: %v", err)
 	} else {
 		for token, id := range tokenList {
 			file.WriteString(token + ":" + id + "\n")
@@ -121,7 +145,7 @@ func readFile() {
 	defer file.Close()
 
 	if err != nil {
-		log.Printf("读取文件错误: %v", err)
+		log.Printf("(低错误级别)读取文件错误: %v", err)
 	} else {
 		reader := bufio.NewReader(file)
 		for {
@@ -130,7 +154,7 @@ func readFile() {
 				if err == io.EOF {
 					break
 				}
-				fmt.Printf("读取文件错误: %v", err)
+				fmt.Printf("(低错误级别)读取文件错误: %v", err)
 				break
 			} else {
 				arr := strings.Split(string(line), ":")
@@ -138,4 +162,14 @@ func readFile() {
 			}
 		}
 	}
+}
+
+// 由用户ID反向检索token
+func id2Token(idIn string) string {
+	for token, id := range tokenList {
+		if id == idIn {
+			return token
+		}
+	}
+	return ""
 }
