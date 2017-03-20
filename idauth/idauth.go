@@ -76,17 +76,13 @@ func Logout(token string) (string, error) {
 
 // Check: 校验token是否合法
 func Check(token string) bool {
-	rst, ok := tokenList[token]
-	if ok == true {
-		return ok, rst
-	} else {
-		return ok, ""
-	}
+	_, ok := tokenList[token]
+	return ok
 }
 
 // getToken: 获取状态token
 func getToken(id string) string {
-	return utils.MD5(time.Now().Format("20060102150405") + id)
+	return utils.MD5([]byte(time.Now().Format("20060102150405") + id))
 }
 
 // initDir: 本地文件存储目录初始化

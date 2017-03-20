@@ -7,17 +7,78 @@
 * [Index](#pkg-index)
 
 ## <a name="pkg-overview">Overview</a>
-gphis/idauth - Identity Authentication
-身份认证模块
+gphis/idauth - Identity Authentication 身份认证模块
 
 
 
 
 ## <a name="pkg-index">Index</a>
+* [func Check(token string) bool](#Check)
+* [func Login(ia IAuth) (string, error)](#Login)
+* [func Logout(token string) (string, error)](#Logout)
+* [type AuthResp](#AuthResp)
+* [type IAuth](#IAuth)
 
 
 #### <a name="pkg-files">Package files</a>
 [idauth.go](/src/gphis/idauth/idauth.go) 
+
+
+
+
+
+## <a name="Check">func</a> [Check](/src/target/idauth.go?s=1747:1776#L68)
+``` go
+func Check(token string) bool
+```
+Check: 校验token是否合法
+
+
+
+## <a name="Login">func</a> [Login](/src/target/idauth.go?s=622:658#L27)
+``` go
+func Login(ia IAuth) (string, error)
+```
+Login: 登录函数
+
+
+
+## <a name="Logout">func</a> [Logout](/src/target/idauth.go?s=1183:1224#L48)
+``` go
+func Logout(token string) (string, error)
+```
+Logout: 退出函数
+
+
+
+
+## <a name="AuthResp">type</a> [AuthResp](/src/target/idauth.go?s=221:317#L8)
+``` go
+type AuthResp struct {
+    Success  bool   `json:"success"`
+    Response string `json:"response"`
+}
+```
+定义响应消息结构
+
+
+
+
+
+
+
+
+
+
+## <a name="IAuth">type</a> [IAuth](/src/target/idauth.go?s=537:594#L22)
+``` go
+type IAuth interface {
+    Authenticate() (bool, string)
+}
+```
+
+
+
 
 
 
