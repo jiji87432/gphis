@@ -13,7 +13,6 @@ package idauth
 
 import (
 	"bufio"
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -44,7 +43,7 @@ type IAuth interface {
 }
 
 // 登录函数
-func Login(ia IAuth) (string, error) {
+func Login(ia IAuth) *AuthResp {
 	ok, id := ia.Authenticate()
 	if ok == true {
 		tmp := id2Token(id)
@@ -53,43 +52,24 @@ func Login(ia IAuth) (string, error) {
 		}
 
 		token := getToken(id)
-		rstmp, err := json.Marshal(&AuthResp{Success: true, Response: token})
-		if err != nil {
-			return "", fmt.Errorf("Login error: %v", err)
-		}
-
 		tokenList[token] = id
 		writeFile()
-		return string(rstmp), nil
+		return &AuthResp{Success: true, Response: token}
 	} else {
-		rstmp, err := json.Marshal(&AuthResp{Success: false, Response: "Login failed."})
-		if err != nil {
-			return "", fmt.Errorf("Login error: %v", err)
-		}
-
-		return string(rstmp), nil
+		return &AuthResp{Success: false, Response: "Login failed."}
 	}
 }
 
 // 退出函数
-func Logout(token string) (string, error) {
+func Logout(token string) *AuthResp {
 	_, ok := tokenList[token]
 	if ok == false {
-		rstmp, err := json.Marshal(&AuthResp{Success: false, Response: "不存在的token"})
-		if err != nil {
-			return "", fmt.Errorf("Logout error: %v", err)
-		}
-
-		return string(rstmp), nil
+		return &AuthResp{Success: false, Response: "不存在的token"}
 	} else {
 		delete(tokenList, token)
 		writeFile()
-		rst, err := json.Marshal(&AuthResp{Success: true, Response: "退出成功"})
-		if err != nil {
-			return "", fmt.Errorf("Logout error: %v", err)
-		}
 
-		return string(rst), nil
+		return &AuthResp{Success: true, Response: "退出成功"}
 	}
 }
 

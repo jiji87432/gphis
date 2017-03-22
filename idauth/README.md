@@ -24,9 +24,9 @@ Check函数用户检测token合法性, 成功则返回校验的bool值以及用�
 
 ## <a name="pkg-index">Index</a>
 * [func Check(token string) (bool, string)](#Check)
-* [func Login(ia IAuth) (string, error)](#Login)
-* [func Logout(token string) (string, error)](#Logout)
 * [type AuthResp](#AuthResp)
+  * [func Login(ia IAuth) *AuthResp](#Login)
+  * [func Logout(token string) *AuthResp](#Logout)
 * [type IAuth](#IAuth)
 
 
@@ -37,7 +37,7 @@ Check函数用户检测token合法性, 成功则返回校验的bool值以及用�
 
 
 
-## <a name="Check">func</a> [Check](/src/target/idauth.go?s=2427:2466#L87)
+## <a name="Check">func</a> [Check](/src/target/idauth.go?s=1897:1936#L67)
 ``` go
 func Check(token string) (bool, string)
 ```
@@ -45,24 +45,8 @@ func Check(token string) (bool, string)
 
 
 
-## <a name="Login">func</a> [Login](/src/target/idauth.go?s=1234:1270#L37)
-``` go
-func Login(ia IAuth) (string, error)
-```
-登录函数
 
-
-
-## <a name="Logout">func</a> [Logout](/src/target/idauth.go?s=1866:1907#L65)
-``` go
-func Logout(token string) (string, error)
-```
-退出函数
-
-
-
-
-## <a name="AuthResp">type</a> [AuthResp](/src/target/idauth.go?s=840:936#L18)
+## <a name="AuthResp">type</a> [AuthResp](/src/target/idauth.go?s=822:918#L17)
 ``` go
 type AuthResp struct {
     Success  bool   `json:"success"`
@@ -77,10 +61,24 @@ type AuthResp struct {
 
 
 
+### <a name="Login">func</a> [Login](/src/target/idauth.go?s=1216:1246#L36)
+``` go
+func Login(ia IAuth) *AuthResp
+```
+登录函数
+
+
+### <a name="Logout">func</a> [Logout](/src/target/idauth.go?s=1590:1625#L54)
+``` go
+func Logout(token string) *AuthResp
+```
+退出函数
 
 
 
-## <a name="IAuth">type</a> [IAuth](/src/target/idauth.go?s=1156:1213#L32)
+
+
+## <a name="IAuth">type</a> [IAuth](/src/target/idauth.go?s=1138:1195#L31)
 ``` go
 type IAuth interface {
     Authenticate() (bool, string)
