@@ -1,0 +1,193 @@
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     2017-03-27 18:14:13                          */
+/*==============================================================*/
+
+
+drop table if exists d_druginfo;
+
+drop table if exists d_idcard;
+
+drop table if exists d_treatment;
+
+drop table if exists t_acceptance;
+
+drop table if exists t_balance;
+
+drop table if exists t_chargetype;
+
+drop table if exists t_detaillist;
+
+drop table if exists t_operator;
+
+drop table if exists t_patient;
+
+drop table if exists t_stockinfo;
+
+/*==============================================================*/
+/* Table: d_druginfo                                            */
+/*==============================================================*/
+create table d_druginfo
+(
+   drugID               varchar(14) not null,
+   drugName             varchar(100) not null,
+   drugMnemonic         varchar(30) not null,
+   barcode              varchar(20) not null,
+   unit                 varchar(20) not null,
+   proSize              varchar(25) not null,
+   priceIn              float not null,
+   priceOut             float not null,
+   producer             varchar(75) not null,
+   primary key (drugID)
+);
+
+/*==============================================================*/
+/* Table: d_idcard                                              */
+/*==============================================================*/
+create table d_idcard
+(
+   idNum                varchar(6) not null,
+   place                varchar(30) not null,
+   primary key (idNum)
+);
+
+/*==============================================================*/
+/* Table: d_treatment                                           */
+/*==============================================================*/
+create table d_treatment
+(
+   treatmentID          varchar(14) not null,
+   treatmentName        varchar(30) not null,
+   unit                 varchar(15) not null,
+   unitPrice            float not null,
+   primary key (treatmentID)
+);
+
+/*==============================================================*/
+/* Table: t_acceptance                                          */
+/*==============================================================*/
+create table t_acceptance
+(
+   acceptanceID         varchar(14) not null,
+   patientID            varchar(14) not null,
+   operatorID           varchar(14) not null,
+   chiefComplain        varchar(150),
+   medicalHistory       varchar(150),
+   checks               varchar(150),
+   treats               varchar(150),
+   diagnose             varchar(150),
+   primary key (acceptanceID)
+);
+
+/*==============================================================*/
+/* Table: t_balance                                             */
+/*==============================================================*/
+create table t_balance
+(
+   balanceID            varchar(14) not null,
+   typeID               varchar(14) not null,
+   totalMount           float not null,
+   operatorID           varchar(14) not null,
+   acceptanceID         varchar(14),
+   primary key (balanceID, typeID)
+);
+
+/*==============================================================*/
+/* Table: t_chargetype                                          */
+/*==============================================================*/
+create table t_chargetype
+(
+   typeID               varchar(14) not null,
+   typeName             varchar(30) not null,
+   primary key (typeID)
+);
+
+/*==============================================================*/
+/* Table: t_detaillist                                          */
+/*==============================================================*/
+create table t_detaillist
+(
+   acceptanceID         varchar(14) not null,
+   itemID               varchar(14) not null,
+   itemName             varchar(50) not null,
+   unit                 varchar(20) not null,
+   unitPrice            float not null,
+   totalPrice           float not null,
+   operatorID           varchar(14) not null,
+   typeID               varchar(14),
+   primary key (acceptanceID, itemID)
+);
+
+/*==============================================================*/
+/* Table: t_operator                                            */
+/*==============================================================*/
+create table t_operator
+(
+   operatorID           varchar(14) not null,
+   name                 varchar(20) not null,
+   mnemonicCode         varchar(10) not null,
+   password             varchar(20) not null,
+   primary key (operatorID)
+);
+
+/*==============================================================*/
+/* Table: t_patient                                             */
+/*==============================================================*/
+create table t_patient
+(
+   patientID            varchar(14) not null,
+   name                 varchar(20) not null,
+   sex                  varchar(5) not null,
+   age                  int not null,
+   birthday             date,
+   idnum                varchar(18),
+   address              varchar(40),
+   phone                varchar(11),
+   primary key (patientID)
+);
+
+/*==============================================================*/
+/* Table: t_stockinfo                                           */
+/*==============================================================*/
+create table t_stockinfo
+(
+   stockID              varchar(14) not null,
+   drugID               varchar(14) not null,
+   unitPrice            float not null,
+   mountIn              float not null,
+   stock                float not null,
+   operatorID           varchar(14) not null,
+   date                 date not null,
+   primary key (stockID, drugID)
+);
+
+alter table t_acceptance add constraint FK_acceptance_operator foreign key (operatorID)
+      references t_operator (operatorID) on delete restrict on update restrict;
+
+alter table t_acceptance add constraint FK_patient_acceptance foreign key (patientID)
+      references t_patient (patientID) on delete restrict on update restrict;
+
+alter table t_balance add constraint FK_acc_balance foreign key (acceptanceID)
+      references t_acceptance (acceptanceID) on delete restrict on update restrict;
+
+alter table t_balance add constraint FK_balance_chargetype foreign key (typeID)
+      references t_chargetype (typeID) on delete restrict on update restrict;
+
+alter table t_balance add constraint FK_balance_operator foreign key (operatorID)
+      references t_operator (operatorID) on delete restrict on update restrict;
+
+alter table t_detaillist add constraint FK_detail_acceptance foreign key (acceptanceID)
+      references t_acceptance (acceptanceID) on delete restrict on update restrict;
+
+alter table t_detaillist add constraint FK_detail_operator foreign key (operatorID)
+      references t_operator (operatorID) on delete restrict on update restrict;
+
+alter table t_detaillist add constraint FK_type_detail foreign key (typeID)
+      references t_chargetype (typeID) on delete restrict on update restrict;
+
+alter table t_stockinfo add constraint FK_stock_drug foreign key (drugID)
+      references d_druginfo (drugID) on delete restrict on update restrict;
+
+alter table t_stockinfo add constraint FK_stock_operator foreign key (operatorID)
+      references t_operator (operatorID) on delete restrict on update restrict;
+
