@@ -1,14 +1,10 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017-03-27 18:14:13                          */
+/* Created on:     2017-03-28 10:09:37                          */
 /*==============================================================*/
 
 
-drop table if exists d_druginfo;
-
 drop table if exists d_idcard;
-
-drop table if exists d_treatment;
 
 drop table if exists t_acceptance;
 
@@ -18,28 +14,17 @@ drop table if exists t_chargetype;
 
 drop table if exists t_detaillist;
 
+drop table if exists t_druginfo;
+
 drop table if exists t_operator;
 
 drop table if exists t_patient;
 
+drop table if exists t_producer;
+
 drop table if exists t_stockinfo;
 
-/*==============================================================*/
-/* Table: d_druginfo                                            */
-/*==============================================================*/
-create table d_druginfo
-(
-   drugID               varchar(14) not null,
-   drugName             varchar(100) not null,
-   drugMnemonic         varchar(30) not null,
-   barcode              varchar(20) not null,
-   unit                 varchar(20) not null,
-   proSize              varchar(25) not null,
-   priceIn              float not null,
-   priceOut             float not null,
-   producer             varchar(75) not null,
-   primary key (drugID)
-);
+drop table if exists t_treatment;
 
 /*==============================================================*/
 /* Table: d_idcard                                              */
@@ -49,18 +34,6 @@ create table d_idcard
    idNum                varchar(6) not null,
    place                varchar(30) not null,
    primary key (idNum)
-);
-
-/*==============================================================*/
-/* Table: d_treatment                                           */
-/*==============================================================*/
-create table d_treatment
-(
-   treatmentID          varchar(14) not null,
-   treatmentName        varchar(30) not null,
-   unit                 varchar(15) not null,
-   unitPrice            float not null,
-   primary key (treatmentID)
 );
 
 /*==============================================================*/
@@ -119,6 +92,23 @@ create table t_detaillist
 );
 
 /*==============================================================*/
+/* Table: t_druginfo                                            */
+/*==============================================================*/
+create table t_druginfo
+(
+   drugID               varchar(14) not null,
+   producerID           varchar(14),
+   drugName             varchar(100) not null,
+   drugMnemonic         varchar(30) not null,
+   barcode              varchar(20) not null,
+   unit                 varchar(20) not null,
+   proSize              varchar(25) not null,
+   priceIn              float not null,
+   priceOut             float not null,
+   primary key (drugID)
+);
+
+/*==============================================================*/
 /* Table: t_operator                                            */
 /*==============================================================*/
 create table t_operator
@@ -147,6 +137,17 @@ create table t_patient
 );
 
 /*==============================================================*/
+/* Table: t_producer                                            */
+/*==============================================================*/
+create table t_producer
+(
+   producerID           varchar(14) not null,
+   producerName         varchar(100) not null,
+   contact              varchar(100),
+   primary key (producerID)
+);
+
+/*==============================================================*/
 /* Table: t_stockinfo                                           */
 /*==============================================================*/
 create table t_stockinfo
@@ -159,6 +160,18 @@ create table t_stockinfo
    operatorID           varchar(14) not null,
    date                 date not null,
    primary key (stockID, drugID)
+);
+
+/*==============================================================*/
+/* Table: t_treatment                                           */
+/*==============================================================*/
+create table t_treatment
+(
+   treatmentID          varchar(14) not null,
+   treatmentName        varchar(30) not null,
+   unit                 varchar(15) not null,
+   unitPrice            float not null,
+   primary key (treatmentID)
 );
 
 alter table t_acceptance add constraint FK_acceptance_operator foreign key (operatorID)
@@ -185,8 +198,11 @@ alter table t_detaillist add constraint FK_detail_operator foreign key (operator
 alter table t_detaillist add constraint FK_type_detail foreign key (typeID)
       references t_chargetype (typeID) on delete restrict on update restrict;
 
+alter table t_druginfo add constraint FK_drug_producer foreign key (producerID)
+      references t_producer (producerID) on delete restrict on update restrict;
+
 alter table t_stockinfo add constraint FK_stock_drug foreign key (drugID)
-      references d_druginfo (drugID) on delete restrict on update restrict;
+      references t_druginfo (drugID) on delete restrict on update restrict;
 
 alter table t_stockinfo add constraint FK_stock_operator foreign key (operatorID)
       references t_operator (operatorID) on delete restrict on update restrict;
