@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017-03-28 10:45:39                          */
+/* Created on:     2017-03-28 14:35:43                          */
 /*==============================================================*/
 
 
@@ -32,7 +32,7 @@ drop table if exists t_treatment;
 create table d_idcard
 (
    idNum                varchar(6) not null,
-   place                varchar(30) not null,
+   place                varchar(100) not null,
    primary key (idNum)
 );
 
@@ -44,11 +44,11 @@ create table t_acceptance
    acceptanceID         varchar(14) not null,
    patientID            varchar(14) not null,
    operatorID           varchar(14) not null,
-   chiefComplain        varchar(150),
-   medicalHistory       varchar(150),
-   checks               varchar(150),
-   treats               varchar(150),
-   diagnose             varchar(150),
+   chiefComplain        varchar(500),
+   medicalHistory       varchar(500),
+   checks               varchar(500),
+   treats               varchar(500),
+   diagnose             varchar(500),
    primary key (acceptanceID)
 );
 
@@ -97,8 +97,8 @@ create table t_detaillist
 create table t_druginfo
 (
    drugID               varchar(14) not null,
-   producerID           varchar(14) not null,
-   drugName             varchar(100) not null,
+   producerID           varchar(14),
+   drugName             varchar(50) not null,
    drugMnemonic         varchar(30) not null,
    barcode              varchar(20) not null,
    unit                 varchar(20) not null,
@@ -127,11 +127,11 @@ create table t_patient
 (
    patientID            varchar(14) not null,
    name                 varchar(20) not null,
-   sex                  varchar(5) not null,
+   sex                  varchar(6) not null,
    age                  int not null,
    birthday             date,
    idnum                varchar(18),
-   address              varchar(40),
+   address              varchar(100),
    phone                varchar(11),
    primary key (patientID)
 );
