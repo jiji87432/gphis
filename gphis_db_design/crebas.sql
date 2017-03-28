@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017-03-28 10:09:37                          */
+/* Created on:     2017-03-28 10:45:39                          */
 /*==============================================================*/
 
 
@@ -97,7 +97,7 @@ create table t_detaillist
 create table t_druginfo
 (
    drugID               varchar(14) not null,
-   producerID           varchar(14),
+   producerID           varchar(14) not null,
    drugName             varchar(100) not null,
    drugMnemonic         varchar(30) not null,
    barcode              varchar(20) not null,
