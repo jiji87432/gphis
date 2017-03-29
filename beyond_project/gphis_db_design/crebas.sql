@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017-03-28 14:35:43                          */
+/* Created on:     2017-03-29 18:07:24                          */
 /*==============================================================*/
 
 
@@ -85,6 +85,7 @@ create table t_detaillist
    itemName             varchar(50) not null,
    unit                 varchar(20) not null,
    unitPrice            float not null,
+   mount                float not null,
    totalPrice           float not null,
    operatorID           varchar(14) not null,
    typeID               varchar(14),
