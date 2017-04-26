@@ -27,3 +27,4 @@ _testmain.go
 bin
 plugins
 *.rpm
+obj
