@@ -1,95 +1,77 @@
 package models
 
-type T_DrugInfo struct {
-	DrugId       string  `json:"drugID" orm:"column(drugID)"`
-	ProducerId   string  `json:"producerID" orm:"column(producerID)"`
-	DrugName     string  `json:"drugName" orm:"column(drugName)"`
-	DrugMnemonic string  `json:"drugMnemonic" orm:"column(drugMnemonic)"`
-	Barcode      string  `json:"barcode" orm:"column(barcode)"`
-	Unit         string  `json:"unit" orm:"column(unit)"`
-	ProSize      string  `json:"proSize" orm:"column(proSize)"`
-	PriceIn      float64 `json:"priceIn" orm:"column(priceIn)"`
-	PriceOut     float64 `json:"priceOut" orm:"column(priceOut)"`
-}
-
-type D_IDCard struct {
-	IDNum string `json:"idNum" orm:"column(idNum)"`
-	Place string `json:"place" orm:"column(place)"`
-}
-
-type T_Acceptance struct {
-	AcceptanceID   string `json:"acceptanceID" orm:"column(acceptanceID)"`
-	PatientID      string `json:"patientID" orm:"column(patientID)"`
-	OperatorID     string `json:"operatorID" orm:"column(operatorID)"`
-	ChiefComplain  string `json:"chiefComplain" orm:"column(chiefComplain)"`
-	MedicalHistory string `json:"medicalHistory" orm:"column(medicalHistory)"`
-	Checks         string `json:"checks" orm:"column(checks)"`
-	Treats         string `json:"treats" orm:"column(treats)"`
-	Diagnose       string `json:"diagnose" orm:"column(diagnose)"`
-}
-
-type T_Balance struct {
-	BalanceID    string  `json:"balanceID" orm:"column(balanceID)"`
-	TypeID       string  `json:"typeID" orm:"column(typeID)"`
-	TotalMount   float64 `json:"totalMount" orm:"column(totalMount)"`
-	OperatorID   string  `json:"operatorID" orm:"column(operatorID)"`
-	AcceptanceID string  `json:"acceptanceID" orm:"column(acceptanceID)"`
-}
-
-type T_ChargeType struct {
-	TypeID   string `json:"typeID" orm:"column(typeID)"`
-	TypeName string `json:"typeName" orm:"column(typeName)"`
-}
-
-type T_DetailList struct {
-	AcceptanceID string  `json:"acceptanceID" orm:"column(acceptanceID)"`
-	ItemID       string  `json:"itemID" orm:"column(itemID)"`
-	ItemName     string  `json:"itemName" orm:"column(itemName)"`
-	Unit         string  `json:"unit" orm:"column(unit)"`
-	UnitPrice    float64 `json:"unitPrice" orm:"column(unitPrice)"`
-	Mount        float64 `json:"mount" orm:"column(mount)"`
-	TotalPrice   float64 `json:"totalPrice" orm:"column(totalPrice)"`
-	OperatorID   string  `json:"operatorID" orm:"column(operatorID)"`
-	TypeID       string  `json:"typeID" orm:"column(typeID)"`
+type T_Patient struct {
+	P_ID       string `json:"p_id" orm:"column(p_id)"`
+	P_Name     string `json:"p_name" orm:"column(p_name)"`
+	P_Sex      string `json:"p_sex" orm:"column(p_sex)"`
+	P_Age      int    `json:"p_age" orm:"column(p_age)"`
+	P_Birthday string `json:"p_birthday" orm:"column(p_birthday)"`
+	P_IDCard   string `json:"p_idcard" orm:"column(p_idcard)"`
+	P_Address  string `json:"p_address" orm:"column(p_address)"`
+	P_Contact  string `json:"p_contact" orm:"column(p_contact)"`
+	P_Height   int    `json:"p_height" orm:"column(p_height)"`
+	P_Weight   int    `json:"p_weight" orm:"column(p_weight)"`
+	P_GMS      string `json:"p_gms" orm:"column(p_gms)"`
+	P_SSS      string `json:"p_sss" orm:"column(p_sss)"`
+	P_MXBS     string `json:"p_mxbs" orm:"column(p_mxbs)"`
 }
 
 type T_Operator struct {
-	OperatorID   string `json:"operatorID" orm:"column(operatorID)"`
-	Name         string `json:"name" orm:"column(name)"`
-	MnemonicCode string `json:"mnemonicCode" orm:"column(mnemonicCode)"`
-	Password     string `json:"password" orm:"column(password)"`
+	O_ID     string `json:"o_id" orm:"column(o_id)"`
+	O_Name   string `json:"o_name" orm:"column(o_name)"`
+	O_Pinyin string `json:"o_pinyin" orm:"column(o_pinyin)"`
+	O_Permit string `json:"o_permit" orm:"column(o_permit)"`
+	O_Pwd    string `json:"o_pwd" orm:"column(o_pwd)"`
 }
 
-type T_Patient struct {
-	PatientID string `json:"patientID" orm:"column(patientID)"`
-	Name      string `json:"name" orm:"column(name)"`
-	Sex       string `json:"sex" orm:"column(sex)"`
-	Age       int    `json:"age" orm:"column(age)"`
-	Birthday  string `json:"birthday" orm:"column(birthday)"`
-	IDNum     string `json:"idnum" orm:"column(idnum)"`
-	Address   string `json:"address" orm:"column(address)"`
-	Phone     string `json:"phone" orm:"column(phone)"`
+type T_Drug_Item struct {
+	Drug_Item_ID string  `json:"drug_item_id" orm:"column(drug_item_id)"`
+	Drug_ID      string  `json:"drug_id" orm:"column(drug_id)"`
+	Mount        float64 `json:"mount" orm:"column(mount)"`
 }
 
-type T_Producer struct {
-	ProducerID   string `json:"producerID" orm:"column(producerID)"`
-	ProducerName string `json:"producerName" orm:"column(producerName)"`
-	Contact      string `json:"contact" orm:"column(contact)"`
+type T_Drug struct {
+	Drug_ID       string  `json:"drug_id" orm:"column(drug_id)"`
+	Drug_Name     string  `json:"drug_name" orm:"column(drug_name)"`
+	Drug_Pinyin   string  `json:"drug_pinyin" orm:"column(drug_pinyin)"`
+	Drug_Barcode  string  `json:"drug_barcode" orm:"column(drug_barcode)"`
+	Drug_Unit     string  `json:"drug_unit" orm:"column(drug_unit)"`
+	Drug_U_Price  float64 `json:"drug_u_price" orm:"column(drug_u_price)"`
+	Drug_Spec     string  `json:"drug_spec" orm:"column(drug_spec)"`
+	Drug_Producer string  `json:"drug_producer" orm:"column(drug_producer)"`
+	Drug_Mount    float64 `json:"drug_mount" orm:"column(drug_mount)"`
 }
 
-type T_StockInfo struct {
-	StockID    string  `json:"stockID" orm:"column(stockID)"`
-	DrugID     string  `json:"drugID" orm:"column(drugID)"`
-	UnitPrice  float64 `json:"unitPrice" orm:"column(unitPrice)"`
-	MountIn    float64 `json:"mountIn" orm:"column(mountIn)"`
-	Stock      float64 `json:"stock" orm:"column(stock)"`
-	OperatorID string  `json:"operatorID" orm:"column(operatorID)"`
-	Date       string  `json:"date" orm:"column(date)"`
+type T_Dispense_Item struct {
+	Dis_Item_ID string  `json:"dis_item_id" orm:"column(dis_item_id)"`
+	Dis_ID      string  `json:"dis_id" orm:"column(dis_id)"`
+	Mount       float64 `json:"mount" orm:"column(mount)"`
 }
 
-type T_Treatment struct {
-	TreatmentID   string  `json:"treatmentID" orm:"column(treatmentID)"`
-	TreatmentName string  `json:"treatmentName" orm:"column(treatmentName)"`
-	Unit          string  `json:"unit" orm:"column(unit)"`
-	UnitPrice     float64 `json:"unitPrice" orm:"column(unitPrice)"`
+type T_Dispense struct {
+	Dis_ID      string  `json:"dis_id" orm:"column(dis_id)"`
+	Dis_Name    string  `json:"dis_name" orm:"column(dis_name)"`
+	Dis_Pinyin  string  `json:"dis_pinyin" orm:"column(dis_pinyin)"`
+	Dis_Unit    string  `json:"dis_unit" orm:"column(dis_unit)"`
+	Dis_U_Price float64 `json:"dis_u_price" orm:"column(dis_u_price)"`
+}
+
+type T_Diagnose struct {
+	Diag_ID       string `json:"diag_id" orm:"column(diag_id)"`
+	Diag_Date     string `json:"diag_date" orm:"column(diag_date)"`
+	P_ID          string `json:"p_id" orm:"column(p_id)"`
+	O_ID          string `json:"o_id" orm:"column(o_id)"`
+	Drug_Item_ID  string `json:"drug_item_id" orm:"column(drug_item_id)"`
+	Dis_Item_ID   string `json:"dis_item_id" orm:"column(dis_item_id)"`
+	Diag_Complain string `json:"diag_complain" orm:"column(diag_complain)"`
+	Diag_Checks   string `json:"diag_checks" orm:"column(diag_checks)"`
+	Diag_Diagnose string `json:"diag_diagnose" orm:"column(diag_diagnose)"`
+}
+
+type T_Bills struct {
+	B_ID          string  `json:"b_id" orm:"column(b_id)"`
+	Diag_ID       string  `json:"diag_id" orm:"column(diag_id)"`
+	Total_Expense float64 `json:"total_expense" orm:"column(total_expense)"`
+	O_ID          string  `json:"o_id" orm:"column(o_id)"`
+	B_Date        string  `json:"b_date" orm:"column(b_date)"`
 }
