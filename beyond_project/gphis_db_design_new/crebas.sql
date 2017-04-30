@@ -1,29 +1,29 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017-04-25 15:21:58                          */
+/* Created on:     2017/4/30 12:36:38                           */
 /*==============================================================*/
 
 
-drop table if exists t_bills;
+drop table if exists bills;
 
-drop table if exists t_diagnose;
+drop table if exists diagnose;
 
-drop table if exists t_dispense;
+drop table if exists dispense;
 
-drop table if exists t_dispense_item;
+drop table if exists dispense_item;
 
-drop table if exists t_drug;
+drop table if exists drug;
 
-drop table if exists t_drug_item;
+drop table if exists drug_item;
 
-drop table if exists t_operator;
+drop table if exists operator;
 
-drop table if exists t_patient;
+drop table if exists patient;
 
 /*==============================================================*/
-/* Table: t_bills                                               */
+/* Table: bills                                                 */
 /*==============================================================*/
-create table t_bills
+create table bills
 (
    b_id                 varchar(14) not null,
    diag_id              varchar(14) not null,
@@ -34,9 +34,9 @@ create table t_bills
 );
 
 /*==============================================================*/
-/* Table: t_diagnose                                            */
+/* Table: diagnose                                              */
 /*==============================================================*/
-create table t_diagnose
+create table diagnose
 (
    diag_id              varchar(14) not null,
    diag_date            date not null,
@@ -51,9 +51,9 @@ create table t_diagnose
 );
 
 /*==============================================================*/
-/* Table: t_dispense                                            */
+/* Table: dispense                                              */
 /*==============================================================*/
-create table t_dispense
+create table dispense
 (
    dis_id               varchar(14) not null,
    dis_name             varchar(50) not null,
@@ -64,9 +64,9 @@ create table t_dispense
 );
 
 /*==============================================================*/
-/* Table: t_dispense_item                                       */
+/* Table: dispense_item                                         */
 /*==============================================================*/
-create table t_dispense_item
+create table dispense_item
 (
    dis_item_id          varchar(14) not null,
    dis_id               varchar(14) not null,
@@ -75,9 +75,9 @@ create table t_dispense_item
 );
 
 /*==============================================================*/
-/* Table: t_drug                                                */
+/* Table: drug                                                  */
 /*==============================================================*/
-create table t_drug
+create table drug
 (
    drug_id              varchar(14) not null,
    drug_name            varchar(50) not null,
@@ -92,9 +92,9 @@ create table t_drug
 );
 
 /*==============================================================*/
-/* Table: t_drug_item                                           */
+/* Table: drug_item                                             */
 /*==============================================================*/
-create table t_drug_item
+create table drug_item
 (
    drug_item_id         varchar(14) not null,
    drug_id              varchar(14) not null,
@@ -103,9 +103,9 @@ create table t_drug_item
 );
 
 /*==============================================================*/
-/* Table: t_operator                                            */
+/* Table: operator                                              */
 /*==============================================================*/
-create table t_operator
+create table operator
 (
    o_id                 varchar(14) not null,
    o_name               varchar(20) not null,
@@ -116,9 +116,9 @@ create table t_operator
 );
 
 /*==============================================================*/
-/* Table: t_patient                                             */
+/* Table: patient                                               */
 /*==============================================================*/
-create table t_patient
+create table patient
 (
    p_id                 varchar(14) not null,
    p_name               varchar(20) not null,
@@ -136,24 +136,24 @@ create table t_patient
    primary key (p_id)
 );
 
-alter table t_bills add constraint FK_bill_diag foreign key (diag_id)
-      references t_diagnose (diag_id) on delete restrict on update restrict;
+alter table bills add constraint FK_bill_diag foreign key (diag_id)
+      references diagnose (diag_id) on delete restrict on update restrict;
 
-alter table t_diagnose add constraint FK_diag_dis foreign key (dis_item_id)
-      references t_dispense_item (dis_item_id) on delete restrict on update restrict;
+alter table diagnose add constraint FK_diag_dis foreign key (dis_item_id)
+      references dispense_item (dis_item_id) on delete restrict on update restrict;
 
-alter table t_diagnose add constraint FK_diag_drug_item foreign key (drug_item_id)
-      references t_drug_item (drug_item_id) on delete restrict on update restrict;
+alter table diagnose add constraint FK_diag_drug_item foreign key (drug_item_id)
+      references drug_item (drug_item_id) on delete restrict on update restrict;
 
-alter table t_diagnose add constraint FK_diag_op foreign key (o_id)
-      references t_operator (o_id) on delete restrict on update restrict;
+alter table diagnose add constraint FK_diag_op foreign key (o_id)
+      references operator (o_id) on delete restrict on update restrict;
 
-alter table t_diagnose add constraint FK_diag_patient foreign key (p_id)
-      references t_patient (p_id) on delete restrict on update restrict;
+alter table diagnose add constraint FK_diag_patient foreign key (p_id)
+      references patient (p_id) on delete restrict on update restrict;
 
-alter table t_dispense_item add constraint FK_dis_dis_item foreign key (dis_id)
-      references t_dispense (dis_id) on delete restrict on update restrict;
+alter table dispense_item add constraint FK_dis_dis_item foreign key (dis_id)
+      references dispense (dis_id) on delete restrict on update restrict;
 
-alter table t_drug_item add constraint FK_drug_item_drug foreign key (drug_id)
-      references t_drug (drug_id) on delete restrict on update restrict;
+alter table drug_item add constraint FK_drug_item_drug foreign key (drug_id)
+      references drug (drug_id) on delete restrict on update restrict;
 

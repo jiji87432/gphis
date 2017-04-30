@@ -1,5 +1,10 @@
 package models
 
+import (
+	"fmt"
+	"github.com/astaxie/beego/orm"
+)
+
 type T_Patient struct {
 	P_ID       string `json:"p_id" orm:"column(p_id)"`
 	P_Name     string `json:"p_name" orm:"column(p_name)"`
@@ -14,6 +19,29 @@ type T_Patient struct {
 	P_GMS      string `json:"p_gms" orm:"column(p_gms)"`
 	P_SSS      string `json:"p_sss" orm:"column(p_sss)"`
 	P_MXBS     string `json:"p_mxbs" orm:"column(p_mxbs)"`
+}
+
+func (this *T_Patient) Add() (bool, error) {
+	if this.P_ID == "" {
+		return false, fmt.Errorf("患者ID为空")
+	}
+
+	if this.P_Name == "" {
+		return false, fmt.Errorf("患者姓名为空")
+	}
+
+	if this.P_Sex == "" {
+		return false, fmt.Errorf("患者性别为空")
+	}
+
+	o := orm.NewOrm()
+
+	_, err := o.Insert(this)
+	if err != nil {
+		return false, err
+	}
+
+	return true, nil
 }
 
 type T_Operator struct {
