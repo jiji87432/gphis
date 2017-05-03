@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/4/30 12:36:38                           */
+/* Created on:     2017/5/3 16:21:12                            */
 /*==============================================================*/
 
 
@@ -128,8 +128,8 @@ create table patient
    p_idcard             varchar(18),
    p_address            varchar(150),
    p_contact            varchar(11),
-   p_height             int,
-   p_weight             int,
+   p_height             float,
+   p_weight             float,
    p_gms                varchar(500),
    p_sss                varchar(500),
    p_mxbs               varchar(500),
