@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/5/3 16:21:12                            */
+/* Created on:     2017/5/3 21:19:17                            */
 /*==============================================================*/
 
 
@@ -29,7 +29,7 @@ create table bills
    diag_id              varchar(14) not null,
    total_expense        float not null,
    o_id                 varchar(14) not null,
-   b_date               date not null,
+   b_date               datetime not null,
    primary key (b_id)
 );
 
@@ -39,7 +39,7 @@ create table bills
 create table diagnose
 (
    diag_id              varchar(14) not null,
-   diag_date            date not null,
+   diag_date            datetime not null,
    p_id                 varchar(14) not null,
    o_id                 varchar(14) not null,
    drug_item_id         varchar(14),
