@@ -60,18 +60,6 @@ type T_Drug_Item struct {
 	Mount        float64 `json:"mount" orm:"column(mount)"`
 }
 
-type T_Drug struct {
-	Drug_ID       string  `json:"drug_id" orm:"column(drug_id)"`
-	Drug_Name     string  `json:"drug_name" orm:"column(drug_name)"`
-	Drug_Pinyin   string  `json:"drug_pinyin" orm:"column(drug_pinyin)"`
-	Drug_Barcode  string  `json:"drug_barcode" orm:"column(drug_barcode)"`
-	Drug_Unit     string  `json:"drug_unit" orm:"column(drug_unit)"`
-	Drug_U_Price  float64 `json:"drug_u_price" orm:"column(drug_u_price)"`
-	Drug_Spec     string  `json:"drug_spec" orm:"column(drug_spec)"`
-	Drug_Producer string  `json:"drug_producer" orm:"column(drug_producer)"`
-	Drug_Mount    float64 `json:"drug_mount" orm:"column(drug_mount)"`
-}
-
 type DrugItemDetail struct {
 	Drug_ID       string  `json:"drug_id" orm:"column(drug_id)"`
 	Drug_Item_ID  string  `json:"drug_item_id" orm:"column(drug_item_id)"`
@@ -191,7 +179,7 @@ func (this *T_Diagnose) SquareAccount(oid string) (*T_Bills, error) {
 	}
 
 	// 判定是否开具过收费项目
-	if len(drugItem) == 0 && len(disitem) == 0 {
+	if len(drugItem) == 0 && len(disItem) == 0 {
 		return nil, fmt.Errorf("尚未开具收费项目")
 	}
 
