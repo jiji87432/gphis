@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/5/3 21:19:17                            */
+/* Created on:     2017/5/9 16:28:46                            */
 /*==============================================================*/
 
 
@@ -87,6 +87,8 @@ create table drug
    drug_u_price         float not null,
    drug_spec            varchar(10) not null,
    drug_producer        varchar(50) not null,
+   drug_man_date        date not null,
+   drug_q_date          date not null,
    drug_mount           float not null,
    primary key (drug_id)
 );
