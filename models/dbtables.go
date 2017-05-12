@@ -7,45 +7,6 @@ import (
 	"time"
 )
 
-type T_Patient struct {
-	P_ID       string  `json:"p_id" orm:"column(p_id)"`
-	P_Name     string  `json:"p_name" orm:"column(p_name)"`
-	P_Sex      string  `json:"p_sex" orm:"column(p_sex)"`
-	P_Age      int     `json:"p_age" orm:"column(p_age)"`
-	P_Birthday string  `json:"p_birthday" orm:"column(p_birthday)"`
-	P_IDCard   string  `json:"p_idcard" orm:"column(p_idcard)"`
-	P_Address  string  `json:"p_address" orm:"column(p_address)"`
-	P_Contact  string  `json:"p_contact" orm:"column(p_contact)"`
-	P_Height   float64 `json:"p_height" orm:"column(p_height)"`
-	P_Weight   float64 `json:"p_weight" orm:"column(p_weight)"`
-	P_GMS      string  `json:"p_gms" orm:"column(p_gms)"`
-	P_SSS      string  `json:"p_sss" orm:"column(p_sss)"`
-	P_MXBS     string  `json:"p_mxbs" orm:"column(p_mxbs)"`
-}
-
-func (this *T_Patient) Add() (bool, error) {
-	if this.P_ID == "" {
-		return false, fmt.Errorf("患者ID为空")
-	}
-
-	if this.P_Name == "" {
-		return false, fmt.Errorf("患者姓名为空")
-	}
-
-	if this.P_Sex == "" {
-		return false, fmt.Errorf("患者性别为空")
-	}
-
-	o := orm.NewOrm()
-
-	_, err := o.Insert(this)
-	if err != nil {
-		return false, err
-	}
-
-	return true, nil
-}
-
 type T_Drug_Item struct {
 	Drug_Item_ID string  `json:"drug_item_id" orm:"column(drug_item_id)"`
 	Drug_ID      string  `json:"drug_id" orm:"column(drug_id)"`
