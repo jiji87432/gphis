@@ -46,14 +46,6 @@ func (this *T_Patient) Add() (bool, error) {
 	return true, nil
 }
 
-type T_Operator struct {
-	O_ID     string `json:"o_id" orm:"column(o_id)"`
-	O_Name   string `json:"o_name" orm:"column(o_name)"`
-	O_Pinyin string `json:"o_pinyin" orm:"column(o_pinyin)"`
-	O_Permit string `json:"o_permit" orm:"column(o_permit)"`
-	O_Pwd    string `json:"o_pwd" orm:"column(o_pwd)"`
-}
-
 type T_Drug_Item struct {
 	Drug_Item_ID string  `json:"drug_item_id" orm:"column(drug_item_id)"`
 	Drug_ID      string  `json:"drug_id" orm:"column(drug_id)"`
