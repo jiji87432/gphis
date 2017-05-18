@@ -1,0 +1,1260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>PaperFree最权威中文论文抄袭检测系统</title>
+<style type="text/css">
+<!--
+user_icon {
+color: #FFFFFF;
+}
+html
+{
+overflow-x:hidden;
+overflow-y:auto;
+}
+body,td,th {
+font-family: "微软雅黑";
+font-size: 12px;
+}
+h1,h2,h3,h4,h5,h6 {
+font-family: "宋体";
+}
+p{
+margin-bottom:10px;
+}
+demo_padding {
+line-height: 30px;
+}
+.zhengwen {
+padding-right: 15px;
+padding-left: 5px;
+padding-bottom:100px;
+font-size: 13px;
+line-height: 20px;
+color: #666666;
+}
+.zhengwencenter {
+padding-right: 15px;
+padding-left: 0px;
+margin-bottom:10px;
+font-size: 13px;
+line-height: 20px;
+color: #666666;
+text-align:center
+}
+.neikuang {
+background-color: #EBEBEB;
+border: 1px solid #999999;
+padding-right: 10px;
+padding-left: 10px;
+margin-top:10px;
+margin-left:25px;
+width:300px;
+}
+.shubu{
+height: 20px;
+width: 20px;
+margin-left:25px;
+background-color: #FFFFFF;
+border: 1px solid #999999;
+text-align: center;
+vertical-align: middle;
+display: block;
+color: #666666;
+}
+a.red:link {color:#FF0000}
+a.red:visited {color:#FF0000}
+a.red:hover {color:#000000}
+a.red:active {color:#000000}
+
+a.orange:link {color:#FF6600}
+a.orange:visited {color:#FF6600}
+a.orange:hover {color:#000000}
+a.orange:active {color:#000000}
+
+a.dark:link {color:#666666}
+a.dark:visited {color:#666666}
+a.dark:hover {color:#000000}
+a.dark:active {color:#000000}
+
+a.pagelink:hover {color:#000000}
+a.pagelink:active {color:#000000}
+
+.green{color:#008000}
+.gray{color:#666666}
+.red{color:#FF0000}
+.orange{color:#FF6600}
+a{TEXT-DECORATION:none}
+
+-->
+</style>
+</head>
+<body>
+
+<div class="zhengwen">
+
+
+  <br>
+<span style="margin-left:25px"></span> 中南民族大学
+<br>
+  <br>
+<span style="margin-left:25px"></span> 毕业论文(设计)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 学院:      计算机科学学院
+<br>
+  <br>
+<span style="margin-left:25px"></span> 专业: 计算机科学与技术 年级:2013
+<br>
+  <br>
+<span style="margin-left:25px"></span> 题目: 私人诊所信息管理系统的设计和实现
+<br>
+  <br>
+<span style="margin-left:25px"></span> 学生姓名:  陈 丰  学号:201321091057
+<br>
+  <br>
+<span style="margin-left:25px"></span> 指导教师姓名: 尹 帆 职称:
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2017年5月
+<br>
+  <br>
+<span style="margin-left:25px"></span> 中南民族大学本科毕业论文(设计)原创性声明
+<br>
+  <br>
+<span style="margin-left:25px"></span> 本人郑重声明:所呈交的论文是本人在导师的指导下独立进行研究所取得的研究成果。除了文中特别加以标注引用的内容外,本论文不包含任何其他个人或集体已经发表或撰写的成果作品。本人完全意识到本声明的法律后果由本人承担。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 作者签名:               年    月    日
+<br>
+  <br>
+<span style="margin-left:25px"></span> 目录
+<br>
+  <br>
+<span style="margin-left:25px"></span> TOC \o "1-3" \u 摘要	1
+<br>
+  <br>
+<span style="margin-left:25px"></span> Abstract	1
+<br>
+  <br>
+<span style="margin-left:25px"></span> 前言	2
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1	系统需求分析	2
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.1	现行医院信息管理系统概况	2
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.2	HIS应用于私人诊所的不合理处	3
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.3	私人诊所解决方案	3
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.4	可行性分析	4
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.4.1	技术可行性	4
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.4.2	经济可行性	4
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2	系统逻辑方案	4
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2.1	数据流图	5
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2.2	数据字典	5
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3	总体结构设计	6
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1	系统功能模块划分	6
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1.1	医生工作站模块	7
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1.2	诊所业务模块	7
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1.3	系统管理模块	7
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2	数据库设计	7
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2.1	实体间关系与E-R图	7
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2.2	关系模式	9
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2.3	数据库物理结构	9
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.3	系统运行配置方案	11
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.3.1	硬件配置要求	12
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.3.2	软件配置要求	12
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4	系统详细设计	12
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.1	程序界面设计	12
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.2	模块处理说明	13
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3	代码设计	17
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.1	技术简介	17
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.2	程序设计约定	17
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.3	代码实现简介	17
+<br>
+  <br>
+<span style="margin-left:25px"></span> 5	系统实施概况	20
+<br>
+  <br>
+<span style="margin-left:25px"></span> 5.1	实施环境设计工具简介	20
+<br>
+  <br>
+<span style="margin-left:25px"></span> 5.2	测试用例设计	20
+<br>
+  <br>
+<span style="margin-left:25px"></span> 致 谢	21
+<br>
+  <br>
+<span style="margin-left:25px"></span> 参考文献	21
+<br>
+  <br>
+<span style="margin-left:25px"></span> 私人诊所信息管理系统的设计和实现
+<br>
+  <br>
+<span style="margin-left:25px"></span> 摘要:使用信息管理系统管理信息有着诸如准确性高、速度快、数据记录量大等人工所不能比拟的优势。然而在一些偏远地区的私人诊所,信息管理系统的应用仍然是十分不到位的,对相应的信息管理系统有着许多的需求。针对此现象本文分析了私人诊所信息管理系统的需求,使用Go与MySQL搭建后台服务,使用C#搭建客户端程序,实现了一套基于C/S架构的信息管理系统,其中包含诊疗业务管理、费用结算等功能模块。以便于私人诊所进行日常业务的管理。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 关键词:信息管理系统;私人诊所;C/S;MySQL;Go;C#
+<br>
+  <br>
+<span style="margin-left:25px"></span> Design &amp; Realization of Private Clinic Information System
+<br>
+  <br>
+<span style="margin-left:25px"></span> Abstract:Using information system has a lot of advantages such as high accuracy, high speed, large number of data, etc. But in some private clinic located in remote areas, the appliance of information system is still not enough. To solve this problem, we analyzed the requirement of private clinic information system. Using Go &amp; MySQL to build the server program, use C# to build the client program, formed a software based on the C/S architecture, provides more convenient in the management of daily businesses.
+<br>
+  <br>
+<span style="margin-left:25px"></span> Key Words:Information System;Private Clinic;C/S;MySQL;Go;C#
+<br>
+  <br>
+<span style="margin-left:25px"></span> 前言
+<br>
+  <br>
+<span style="margin-left:25px"></span> 随着信息技术的发展,越来越多的行业机构选择使用信息管理系统进行信息管理。相较于手工记录,使用信息管理系统进行信息管理具有处理速度快、记录精准等人工所不能比拟 的优点。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 本文设计的系统的目标选择为内蒙古赤峰市巴林左旗的私人诊所,这类诊所相较于城镇的中心医院而言,规模更小,开展的医疗服务倾向于日常化。诊所的工作人员规模一般在5人以内,可开展日常常规诊疗处置工作:如注射、处方开具等。同时,这类诊所不具备化验、影像等医技科室。诊所日接诊量正常情况下少于30人,患者随治随走。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 由于这类私人诊所的业务量少,且可开展的医疗服务类型少,所以流程相较于常规医院而言要简化了很多。同时,该地区的信息技术应用水平相较于大城市而言要落后一步,还有许多类似规模的私人诊所还依然停留在手工记录诊所日常业务信息。显然,这种方式无论从效率还是准确性上来讲都是存在问题的。而现有的医院信息管理系统的流程对于这类私人诊所而言过于复杂,因此本文旨在设计一套符合这类小规模私人诊所的信息管理系统,方便进行信息的管理。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 本系统采用Go与MySQL实现系统的后台服务,使用C#实现系统的客户端程序,进而形成一套基于C/S架构的信息管理系统。应用后系统可分析处理诊所的日常诊疗业务及营收。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1	系统需求分析
+<br>
+  <br>
+<span style="margin-left:25px"></span> 医院信息管理系统(HIS, Hospital Information System)是一个十分庞大的信息管理系统,其中涉及到了医院庞杂的各类业务。规模巨大,逻辑复杂。本文仅研究与私人诊所与医院重合的业务部分,即诊疗过程以及费用结算部分。在需求分析部分,首先简要介绍现行的医院信息管理系统中诊疗业务及费用结算的流程,之后,与私人诊所的业务相比较,探讨现行HIS在私人诊所中应用的不合理点。最后提出本文对于私人诊所诊疗过程的解决方案。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.1	现行医院信息管理系统概况
+<br>
+  <br>
+<span style="margin-left:25px"></span> 医院的规模受制于诸多因素,与当地的发展情况有着密不可分的关联。不同规模的医院在信息管理系统的应用上程度不同。在此部分,我们讨论的目标是内蒙古赤峰市巴林左旗医院,该医院是巴林左旗地区唯一的一所二级甲等医院,全院职工近400人[1]。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 截止2017年3月,该院使用的用友HIS配合医院的实况,门诊诊疗部分的流程如图1-1所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者到院后,先到挂号处挂号。随后,持挂号单到门诊医生处,门诊医生接诊。医生对患者进行初步诊断后,为患者开具处置、处方以及检查项目,在患者缴费后,持申请单进行相应的检查或取药。最后,医生为患者开具医嘱,整段诊疗流程结束。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 1‑1 HIS门诊诊疗流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.2	HIS应用于私人诊所的不合理处
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在图1-1中所描述的门诊诊疗流程,是一个正常情况下的医院门诊的诊疗流程。其中包括了从挂号到分诊最后再到医生进行诊疗以及最后的费用结算的大体流程。对于一个规模较大的医院而言,这样的流程是必要的。通过这样一套标准化的流程,可以在患者较多的情况下做到高效率的分诊。大大的提高了医生及各个部门的工作效率。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 但是,对于本文讨论的目标而言,这样一套标准的门诊诊疗流程有些过于复杂。首先,讨论目标私人诊所的日接诊量少,一般每日少于30人;同时,诊所工作人员也少,一般在5人以内,诊所的业务量不大。其次,诊所的小规模意味着诊所通常都是综合性门诊,每个接诊的医生都可以负责进行许多病症的诊疗,而规模较大的医院在同一时间段内存在数十名不同专业的医生同时进行门诊诊疗工作。所以,在图1-1中提到的挂号流程对于私人诊所而言是不必要的。因为人流量小的私人诊所完全可以做到患者随到医生随诊。由于私人诊所不具备检验等医技科室,所以,在图1-1中提到的医生开具检验的流程对于私人诊所也是不必要的。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 综上所述,标准的医院门诊诊疗流程对于私人诊所而言过于复杂。私人门诊信息管理系统在诊疗部分应该是一个“简化”的医院信息管理系统。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.3	私人诊所解决方案
+<br>
+  <br>
+<span style="margin-left:25px"></span> 基于1.2部分所讨论的现行HIS应用于私人诊所的不合理点,我们提出符合讨论目标实际情况的解决方案。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 现行HIS于私人诊所而言缺点在于流程过于复杂。因此,解决方案的侧重点在于私人诊所信息管理系统是一个简化版的一换信息管理系统。在解决方案中,首先去掉了挂号的流程,患者到诊所后医生直接接诊。同时,去掉流程中开具检查的过程,医生开具的项目只有处方以及处置。我们可以使用图1-2来表示该解决方案。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 1‑2 私人诊所诊疗流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 通过图1-2这样一套符合目标私人诊所现况的解决方案,可以做到更方便的管理私人诊所的日常业务的需求。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.4	可行性分析
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.4.1	技术可行性
+<br>
+  <br>
+<span style="margin-left:25px"></span> 由于私人诊所的业务量远远低于常规医院,因此其应用信息管理系统的过程中所产生的数据量也是相对较少的。按每天30条计算,年产生数据量约10000条。对于MySQL而言检索速度不存在问题。同时,由于业务量少,使用者少,对于数据并发处理的压力相对于HIS而言要小了很多。因此对于并发处理能力的要求也相对较小。Go作为一款在语言级别支持并发处理的程序设计语言,其处理性能足够满足私人诊所信息管理系统对于并发处理的需求。最后,可以使用C#的Winform快速的制作客户端程序。因此,方案在技术角度上可行。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 1.4.2	经济可行性
+<br>
+  <br>
+<span style="margin-left:25px"></span> 应用信息管理系统的基础是诊所有个人电脑。当前许多的私人诊所虽然没有应用信息管理系统,但是绝大多数诊所已经接入了医保系统,可对患者用药进行报销,因此,绝大多数私人诊所都配备了个人电脑,但仅用于联网处理报销业务。所以,计算资源存在很大的空闲。同时,接入了医保系统意味着诊所已经配备了针式打印机,为信息系统输出单据提供了可能。而由于诊所业务量本身并不大,所以可以将服务端与客户端程序部署在同一台计算机上。所以,在硬件方面,私人诊所可以满足系统部署的硬件要求。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2	系统逻辑方案
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在系统逻辑方案部分,我们对系统的逻辑设计进行简要的阐述。首先,讨论系统的数据流图的设计,描述出系统内部的数据传递以及加工。之后,在数据字典部分,我们对第一部分的数据流图的元素进行解释。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2.1	数据流图
+<br>
+  <br>
+<span style="margin-left:25px"></span> 数据流图是从数据传递和加工的角度,以图形的方式来表示系统的逻辑功能、数据在系统内部的逻辑流向以及逻辑变换过程。是结构化系统分析方法的主要表达工具以及用于表示软件模型的一种图示方法。设计数据流图的时候只需要考虑系统必须完成的基本逻辑功能,无需考虑如何具体实现这些功能,因此它也是今后进行软件设计的良好出发点[2][3]。[3]
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在该部分,我们给出私人诊所信息管理系统的数据流图,如图2-1所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 医生
+<br>
+  <br>
+<span style="margin-left:25px"></span> 接诊
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者信息表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 治疗
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 结算
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病历表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 费用表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 费用信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 2‑1 程序数据流图
+<br>
+  <br>
+<span style="margin-left:25px"></span> 通过该数据流图,可以看出,系统使用者为医生。同时,系统中存在接诊、诊断、治疗、结算四个数据处理过程。而在整个系统中,有患者信息、病历信息以及费用信息三个数据存储。在接下来的数据字典部分,我们对上图的每个元素进行详细的说明。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2.2	数据字典
+<br>
+  <br>
+<span style="margin-left:25px"></span> 数据字典即为对数据流图中数据项、数据存储等每一个元素的详细说明[4]。在此部分,列出了程序数据流图(图2-1)中的每一个元素的详细说明。如表2-1所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 2‑1 程序数据字典
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	患者信息		名称	诊断信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 描述	患者来到诊所后所登记的基本信息		描述	当次诊断的诊断信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 定义	患者信息=姓名+性别+年龄+身高+体重+联系方式+既往病史+过敏史+手术史		定义	诊断信息=诊断症状
+<br>
+  <br>
+<span style="margin-left:25px"></span> 位置	接诊,诊断,患者信息表		位置	治疗,病历表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	处方信息		名称	处置信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 描述	患者当次就诊医生所开具的处方		描述	患者当次就诊医生所开具的处置
+<br>
+  <br>
+<span style="margin-left:25px"></span> 定义	处方信息=药品名称+药品数量+药品规格+药品单价		定义	处置信息=处置名称
+<br>
+  <br>
+<span style="margin-left:25px"></span> +数量+单价+规格
+<br>
+  <br>
+<span style="margin-left:25px"></span> 位置	结算,病历表		位置	结算,病历表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	费用信息		名称	患者信息表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 描述	患者当次就诊的费用信息		描述	存储所有患者基本信息的表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 定义	费用信息=处方总价+处置总价		定义	患者信息表=姓名+性别+年龄+身高+体重+联系方式+既往病史+过敏史+手术史
+<br>
+  <br>
+<span style="margin-left:25px"></span> 位置	费用表		位置	数据库
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	病历表		名称	费用表
+<br>
+  <br>
+<span style="margin-left:25px"></span> 描述	患者每次就诊的病历信息		描述	患者每次就诊的费用信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 定义	病历表=患者信息+诊断+处方+处置		定义	费用表=处方费用+处置费用
+<br>
+  <br>
+<span style="margin-left:25px"></span> 位置	数据库		位置	数据库
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	接诊		名称	诊断
+<br>
+  <br>
+<span style="margin-left:25px"></span> 描述	医生每次接诊病患的操作		描述	医生对患者本次就诊进行诊断
+<br>
+  <br>
+<span style="margin-left:25px"></span> 定义	输入:患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 输出:患者信息+接诊信息		定义	输入:患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 输出:患者诊断信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 位置	接诊		位置	诊断
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	治疗		名称	结算
+<br>
+  <br>
+<span style="margin-left:25px"></span> 描述	医生对患者进行治疗项目开具		描述	医生为本次诊疗过程进行结算
+<br>
+  <br>
+<span style="margin-left:25px"></span> 定义	输入:诊断信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 输出:处方信息、处置信息		定义	输入:处方信息、处置信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 输出:费用信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 位置	治疗		位置	结算
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3	总体结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在系统总体结构设计部分,首先我们讨论系统的功能模块划分,之后,在数据库设计中列出概念结构设计以及物理结构设计方案。最后,列出系统运行的配置方案。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1	系统功能模块划分
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在系统需求分析这一章中,我们简要的分析了现行HIS在应用于私人诊所的不合理处以及私人诊所的相关业务特点。基于需求分析部分所提出的内容,我们列出如下的系统功能模块划分。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 从系统总体的角度来讲,系统分为三大功能模块:医生工作站模块,诊所业务模块以及系统管理模块。系统结构功能图如图3-1所示,之后对三个功能模块的业务功能进行详细的阐述。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 3‑1 私人诊所信息管理系统功能结构图
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1.1	医生工作站模块
+<br>
+  <br>
+<span style="margin-left:25px"></span> 医生工作站模块的使用者为诊所医生。诊所医生对患者进行接诊操作,而在接诊操作之后进行的病历维护以及收费项目的开具同样都是由医生完成的。因此,医生工作站模块应该包括患者管理、患者接诊以及诊疗三个业务功能。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在患者管理中,应该包括患者信息的添加、修改、删除以及查询患者信息这四个功能。患者管理是对诊所基本信息的维护。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者接诊即为患者当次就诊建立一份新的门诊病历,一名患者可对应多份门诊病历,而每一份门诊病历都是患者在诊所的一次诊疗过程。在该部分,应当包含患者接诊、取消接诊这两个功能。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者诊疗是医生对患者本次就诊进行处置内容以及处方内容开具的一个过程。因此,该部分应该包括为患者开具收费项目、收费项目修改两个功能。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1.2	诊所业务模块
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊所业务模块的使用者为诊所的工作人员。诊所的业务除了医生进行的业务之外,还包括数据维护、费用结算等。而诊所业务模块就是解决这个问题的。诊所业务模块涉及费用结算、数据统计以及药品信息维护三个功能。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在费用结算中,应当包括费用结算、结算作废两个功能。其中,费用结算功能的目的是为患者本次就诊的花销进行结算,而提供结算作废功能的意义在于可使因误操作导致的结算动作可以回滚。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 私人诊所信息管理系统除了可以记录诊所日常业务所产出的数据,还应当提供数据的统计展示功能。数据展示的功能目的即在于此。该功能应该包括医生工作量统计、诊所收入统计等功能。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 由于诊所也会销售药品,因此,在诊所业务模块中同时应该包含药品信息维护的功能。由于本文重点讨论诊疗过程的系统设计,因此这一部分的内容有所简化。此部分包括的内容有药品信息的增删改查四种基本操作即可。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.1.3	系统管理模块
+<br>
+  <br>
+<span style="margin-left:25px"></span> 系统管理模块是保证系统正常运作的模块。该模块包括了用户管理以及权限管理两个功能模块。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在用户管理模块中,可以对系统的用户进行增加、修改、删除、查询四种基本的操作。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 由于系统用户不止一人,因此需要有权限管理功能,不具有对应模块权限的用户无法进行访问等操作。此模块包含权限的查询与修改两种操作。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2	数据库设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 数据库在整个程序中起着至关重要的作用。而我们搭建程序的过程中所使用的MySQL是一款关系型数据库管理软件。设计关系型数据库的时候我们要考虑实体以及实体之间的关系,最终导出数据库设计的E-R图,该内容在第一部分中将提到。之后,我们列举出由E-R得到的数据库关系模式。在完成上述的数据库概念结构设计与逻辑结构设计之后,需要进行的是数据库的物理结构设计,物理结构设计即数据库中实际存在的数据表的结构及其字段类型,此部分将在数据库设计的最后进行阐述。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2.1	实体间关系与E-R图
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在此部分,重点讨论诊疗过程中所涉及到的实体及其之间的关系[6]。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在诊疗过程中,涉及到的实体有病人基本信息、诊断信息、处置信息、处方信息以及药品/材料五个实体,接下来的内容为详细描述每个实体的内容。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病人基本信息表示每名患者的基本信息。每名患者初次来到诊所的时候,新增一条病人基本信息。因此该实体所包括的属性为一名病人最基础的一些信息,包括病人姓名,年龄,身高体重,过敏史,手术史以及慢性病史等基本信息。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息,顾名思义,该实体代表患者每次就诊医生所作出的诊断。该实体包括了患者主诉、检查、诊断、处置等相应的属性字段。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置信息是医生在对患者进行了诊断之后开具处置项目的存储实体,该实体包括了项目名、项目计价单位、单价、数量等相应的属性字段。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方信息是医生在对患者进行了诊断之后开具处方项目的存储实体,该实体包括了药品名称、药品规格、药品单价、药品数量等相应的属性字段。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 药品/材料实体是药品信息的存储实体,该实体包括了药品的基本属性,如名称、规格、单价、生产商等;鉴于本文重点讨论诊疗过程的数据库设计,因此简化掉了库存管理的数据库设计内容。所以将库存作为药品/材料实体的一个属性进行管理。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置项目实体是记录处置项目的存储实体,包括了处置名称、单价、单位等基本属性。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 上述内容详细的介绍了诊疗过程中所涉及的相关实体。下面对这些实体间的关系进行详细阐述。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病人基本信息实体与诊断信息实体间存在接诊的关系。一名患者可多次到诊所就医,那么同一名患者就会有多条诊断的记录。因此,一条病人的基本信息可对应多条诊断信息,而一条诊断信息只对应一条病人基本信息,因此,这个接诊这个关系属于一对多的关系。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息实体与处置信息实体间存在着开处置的关系。在同一次就医的过程中,医生会对患者开具多条处置内容。因此,一条诊断信息可对应多条处置信息,但一条处置信息只对应一条诊断信息。所以,开处置这个关系也是一个一对多的关系。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息实体与处方信息实体之间存在着开处方的关系。在同一次就医的过程中,医生会对患者开具多项处方的内容。因此,一条诊断信息可对应多条处方信息,但一条处方信息只能对应一条诊断信息。所以,开处方这个关系也是一个一对多的关系。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方信息实体与药品/材料实体间存在着包含的关系。一个处方信息会包含多条的药品/材料信息,同时,一条药品/材料信息可以同时存在于多条处方信息中。所以,这个包含的关系是一个多对多的关系。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置项目实体与处置信息实体间存在着包含的关系。处置信息中可以包含多条处置项目,同时一个处置项目可以同时存在于多个处置信息中。所以,这个关系也是一个多对多的关系。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在讨论了诊疗过程中所涉及到的相关实体以及这些实体间的关系之后,我们可以导出E-R图,如图3-2所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 3‑2 数据库E-R图
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2.2	关系模式
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在进行了第一部分的概念结构设计之后,在此部分,继续讲上述的概念模型进行关系模式转换。对E-R图进行关系模式转换后,可以得出如下的关系模式[7]。其中,关系模式中的主码以下划线标出,关系模式中的外码以井号标出。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病人(病人编号,姓名,性别,年龄,出生日期,身份证号,家庭住址,联系方式,身高,体重,过敏史,手术史,慢性病史)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 药品(药品编号,药品名称,拼音码,条形码,计价单位,单价,产品规格,生产厂商,库存量)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置项目(项目编号,项目名称,拼音码,计价单位,单价)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息(接诊编号,接诊时间,病人编号#,医生编号#,患者主诉,检查,诊断,处置编号#,处方编号#)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置信息(处置编号,处置项目编号#,数量)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方信息(处方编号,药品编号#,数量)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 除上述在E-R图中已被提及的关系模式转换,还有如下关系模式,下列关系模式不在诊疗的流程范围之内,但也都是程序所必须的数据存储。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 费用(编号,接诊编号#,总费用,操作员编号#,结算日期)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 操作员(编号,姓名,权限,密码)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 上述内容即为所有数据库设计过程中需要用到的关系模式。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.2.3	数据库物理结构
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在进行了上述内容的数据库概念结构设计与逻辑结构设计之后,在此部分,进行数据库的物理结构建模。数据库的物理结构即在数据库中实际存储的内容的数据结构设计。下文首先附上数据库物理结构设计的表格,如表3-1所示,随后附上使用PowerDesigner 16.5建模后的效果图[8],如图3-3所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑1 病人表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病人(patient)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病人编号	p_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 姓名	p_name	varchar(20)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 性别	p_sex	varchar(10)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 年龄	p_age	int	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 出生日期	p_birthday	date
+<br>
+  <br>
+<span style="margin-left:25px"></span> 身份证号	p_idcard	varchar(18)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 家庭住址	p_address	varchar(150)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 联系方式	p_contact	varchar(11)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 身高	p_height	float(单位cm)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 体重	p_weight	float(单位kg)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 过敏史	p_gms	varchar(500)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 手术史	p_sss	varchar(500)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 慢性病史	p_mxbs	varchar(500)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑2 药品表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 药品(drug)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 药品编号	drug_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 名称	drug_name	varchar(50)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 拼音码	drug_pinyin	varchar(25)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 条形码	drug_barcode	varchar(13)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 计价单位	drug_unit	varchar(10)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 单价	drug_u_price	float	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 产品规格	drug_spec	varchar(10)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 生产厂商	drug_producer	varchar(50)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 库存	drug_mount	float	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑3 诊断信息表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断信息(diagnose)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 接诊编号	diag_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 接诊时间	diag_date	datetime	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 病人编号	p_id	varchar(14)	 	√	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 医生编号	o_id	varchar(14)	 	√	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方编号	drug_item_id	varchar(14)	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置编号	dis_item_id	varchar(14)	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者主诉	diag_complain	varchar(500)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 检查	diag_checks	varchar(500)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 诊断	diag_diagnose	varchar(500)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑4 操作员表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 操作员(operator)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 操作员编号	o_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 姓名	o_name	varchar(20)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 拼音码	o_pinyin	varchar(10)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 权限	o_permit	varchar(100)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 密码	o_pwd	varchar(100)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑5 处方信息表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方信息(drug_item)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方编号	drug_item_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 药品编号	drug_id	varchar(14)	√	√	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 数量	mount	float	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑6 费用表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 费用(bills)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 结算单编号	b_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 接诊编号	diag_id	varchar(14)	 	√	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 总费用	total_expense	float	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 操作员编号	o_id	varchar(14)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 结算日期	b_date	datetime	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑7 处置项目表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置项目(dispense)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 项目编号	dis_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 项目名称	dis_name	varchar(50)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 拼音码	dis_pinyin	varchar(25)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 计价单位	dis_unit	varchar(10)	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 单价	dis_u_price	float	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑8 处置信息表物理结构设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置信息(dispense_item)
+<br>
+  <br>
+<span style="margin-left:25px"></span> 字段说明	字段名	数据类型	主键	外键	非空
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置编号	dis_item_id	varchar(14)	√	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处置项目编号	dis_id	varchar(14)	√	√	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 数量	mount	float	 	 	√
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 3‑3 数据库物理结构设计图
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.3	系统运行配置方案
+<br>
+  <br>
+<span style="margin-left:25px"></span> 由于开发技术的选择较新,因此程序对于运行环境有着一定的要求,达不到指定配置的环境运行程序可能会造成一些不可预测的后果。现对程序运行环境进行详细说明。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.3.1	硬件配置要求
+<br>
+  <br>
+<span style="margin-left:25px"></span> 程序客户端运行于微软Windows操作系统,且版本应高于Windows 7。因此,对于硬件配置的要求,参照了微软官方对Windows 7的最低配置要求[9],如表3-2所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 3‑9 硬件最低要求
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处理器	1 GHz 32位或64位处理器
+<br>
+  <br>
+<span style="margin-left:25px"></span> 内存	1 GB 及以上
+<br>
+  <br>
+<span style="margin-left:25px"></span> 显卡	支持DirectX 9,128M及以上
+<br>
+  <br>
+<span style="margin-left:25px"></span> 硬盘空间	16GB以上,主分区,NTFS格式
+<br>
+  <br>
+<span style="margin-left:25px"></span> 显示器	分辨率在1024*768像素以上
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3.3.2	软件配置要求
+<br>
+  <br>
+<span style="margin-left:25px"></span> 首先,操作系统方面,客户端程序运行于不低于Windows 7的操作系统;客户端程序如果运行于Linux操作系统,则发行版本应当选择不低于CentOS 6的操作系统,如果运行于Windows操作系统,同样版本不应低于Windows7.
+<br>
+  <br>
+<span style="margin-left:25px"></span> 其次,对于服务器端,DBMS选择MySQL,且版本不应低于5.0。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 最后,对于客户端,程序开发语言选择了C#,因此,操作系统中的.NET Framework版本不应低于4.5。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4	系统详细设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在之前几部分的内容中,依次进行了需求分析、逻辑设计、总体设计。在需求分析部分,确定了程序需要解决什么样的问题。在逻辑设计部分,确定了程序总体的数据流的流向。在总体设计部分,确定了程序功能模块的划分,以及程序依赖的数据库的设计过程。而在系统详细设计部分,重点讨论程序模块的具体处理流程以及其代码的实现,以及程序的人机界面设计。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.1	程序界面设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图形用户界面(Graphic User Interface,GUI)是指以图形界面的方式显示用户操作的程序。与早期计算机使用的命令行界面相比,图形界面对于用户来说在视觉上更易于接受。[10]因此对于普通用户而言,设计程序的图形界面是十分重要的。在此部分,我们列出部分的GUI设计。如图4-1到图4-5所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑1患者信息添加模块GUI设计                    图 4‑2 接诊模块GUI设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑3 开具诊断GUI设计                       图 4‑4 开具处方GUI设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑5 开具处置GUI设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.2	模块处理说明
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在系统总体结构设计部分,我们划分出了程序需要的功能模块。在本部分,对这些功能模块的数据处理流程进行分析。囿于篇幅限制,模块处理概述部分仅讨论与诊疗流程相关的模块的部分内容,即医生工作站模块里的患者管理、患者接诊、患者诊疗与诊所业务模块中的费用结算。现将详细内容列举如下。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者管理模块是诊所管理患者信息的基本模块。该模块包括患者信息的增加、删除、修改、查询。本文列出患者信息添加和删除模块的处理流程,在信息添加模块,首先输入患者的姓名,系统查询数据库有无同名患者信息,如果有,提示可能重复建立信息,是否继续录入,如果选择继续录入,那么将新建一条患者信息记录,否则调用原有信息。其流程图如图4-6所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑6 患者信息添加流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 删除信息的流程为,输入患者的ID,程序查询数据库有无此记录,如果查到了记录,提示是否删除,根据用户选择决定是否删除,如果查无此记录,则提示未找到相关信息。其流程图如图4-7所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑7 患者信息删除流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者接诊是患者到私人诊所就诊医生所进行的第一步操作,也是诊疗流程的起始处。接诊的流程为:医生录入患者的基本信息,系统查询有无该患者的基本信息,若有,直接调用原有信息,否则医生执行添加基本信息的操作。在选择好了患者的基本信息之后,医生选择确认接诊,本次接诊成功。其流程图如图4-8所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑8 接诊患者流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 取消接诊是对于可能存在的接诊误操作的回滚。取消接诊的前提是本次接诊病历没有开具处置、开具处方,同时没有进行过结算操作。流程为:医生选择需要取消接诊的接诊单,首先检查记录是否存在,如果存在,进行下一步,否则提示记录不存在,之后检查这个接诊单有无开具过处方、处置,如果有,则提示不可以进行取消,否则,直接取消接诊,将数据库中的记录删除。流程图如图4-9所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑9 取消接诊流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者诊疗的过程中,包括医生对患者信息做出诊断,开具处方项目与开具处置项目。其中,增加患者的诊断信息无需对数据进行判断,因此流程在此不做赘述。开具处置项目情况类似也不做过多阐述。在此进队开具处方项目的流程进行说明。流程为:医生输入药品的编号/拼音码,之后查找有无药品数据,如果有,那么确认所开药物的库存是否能够满足本次处方的要求,如果可以,则成功开具处方项目。否则,处方开具不成功。开具处方项目的流程如图4-10所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑10 开具处方项目流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 费用结算是患者在诊疗过程完成之后进行的最后一个步骤。在费用结算中,首先选择需要结算的接诊单,系统首先检查有无对应接诊单,若存在,则查询接诊单有无开具处置项目或处方项目,如果二者有被开具的项目,则进行结算操作。在这个过程中,如果没有查找到接诊单或接诊单没有开具任何收费项目,则提示未进行收费项目开具,不能进行结算。费用结算的流程图如图4-11所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 图 4‑11 费用结算流程
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3	代码设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在程序代码设计部分,由于程序存在客户端与服务器端,而客户端的程序大部分内容为数据逻辑处理,因此在此部分不做赘述。本部分着重讨论服务器端程序的代码设计,包括数据库模型,API设计概况等。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.1	技术简介
+<br>
+  <br>
+<span style="margin-left:25px"></span> 网络应用程序,分为前端和后端两部分。在前端与后端之间,必须有一种统一的机制,方便不同的前端程序与后端程序进行通信[11]。本程序的客户端与服务器端之间的信息交互同样选择使用HTTP API的方式进行开发。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 程序的服务器端使用Go进行实现。Go作为一门静态类型的开发语言,集聚了许多其他语言的特性。包括自动垃圾回收,更丰富的内置类型,函数多返回值,错误处理,匿名函数和闭包,类型和接口以及并发编程等诸多优秀的功能。其在语言级别支持的许多优秀的特性使其在近几年的服务器端程序中占据了越来越多的比重[12]。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 本程序的服务器端使用了一款名为beego的前端框架。beego是一个快速开发Go应用的HTTP框架,他可以用来快速开发API、Web及后端服务等各种应用,是一个RESTful的框架[13]。通过使用beego进行HTTP API的开发,可以简化许多编码过程中的麻烦。
+<br>
+  <br>
+<span style="margin-left:25px"></span> Beego是一款基于MVC模式的框架,其程序设计思路遵从MVC中的Model、View、Controller三层的思想[14]。在本程序的开发中,由于不涉及View层的内容,因此View层被简化到Controller层做数据返回。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 程序的数据交互统一使用JSON作为标准格式。JSON(JavaScript Object Notation, JS对象标记)是一种轻量级的数据交换格式,采用完全独立于编程语言的文本格式来存储和表示数据[15]。同时易于人阅读和编写,也易于机器解析和生成,可以有效地提升网络传输效率。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.2	程序设计约定
+<br>
+  <br>
+<span style="margin-left:25px"></span> 程序前后端之间采用HTTP协议进行通信,服务器端程序为HTTP API程序,对外提供接口服务,前后端之间数据传输格式统一采用JSON。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 程序的HTTP Response格式统一定义为:
+<br>
+  <br>
+<span style="margin-left:25px"></span> 其中,$result为布尔类型值,代表当前操作有无成功进行。$reason视不同接口返回不同的内容。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.3	代码实现简介
+<br>
+  <br>
+<span style="margin-left:25px"></span> 此部分以费用结算的接口的实现为例进行简要的阐述。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 费用结算模块是患者开具了诊疗项目以及处方之后进行结算的步骤,该步骤是患者在诊所进行的流程中的最后一步。该模块输入的数据为患者的接诊单ID,即在医生接诊的时候系统所生成的本次接诊的接诊单ID。输入了接诊单ID后,程序首先判定接诊单是否存在,在存在的前提下,程序查询数据库处置项目表与处方项目表,如果存在处置项目或处方项目的话,则对该接诊单进行结算。否则提示未开具过项目,无法结算。结算的具体操作为,计算出本次就诊的花费总额,生成一个结算单ID,将这些信息写入数据库的结算表中。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.3.1	数据表建模
+<br>
+  <br>
+<span style="margin-left:25px"></span> 为了实现Go访问数据库,首先在models包中对数据库表进行建模。费用结算接口涉及到处方项目表、处置项目表、费用表以及诊断信息表。对数据库表进行建模代码类似,此处给出对诊断信息表建模的代码,如下所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 上述结构体的每一个字段的含义详见3.2部分的内容。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.3.2	根据处方ID查询处方项目函数的实现
+<br>
+  <br>
+<span style="margin-left:25px"></span> 实现费用结算函数之前,首先需要实现查询指定ID的处方项目与处置项目的两个函数。由于二者代码相似,因此以查询指定ID的处方项目函数GetDrugItemDetail的实现为例进行说明。函数进行了一次数据库多表查询,并将查询出的结果进行返回。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 4.3.3.3	结算函数的实现
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在models包中定义好与数据库物理结构相对应的结构体之后,进行models包中结算函数SquareAccount的实现。该函数为基于T_Diagnose结构体的结构体函数,传入oid参数,为操作员ID,函数返回值类型分别为*T_Bills类型与error类型,其中*T_Bills类型的返回值为结算单的详细信息,error类型的返回值为结算过程中遇到的错误。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 5	系统实施概况
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在系统实施概况部分,对程序设计过程中所用到的工具进行简要的说明,之后,列出程序设计完成后,对程序进行测试所使用的测试用例。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 5.1	实施环境设计工具简介
+<br>
+  <br>
+<span style="margin-left:25px"></span> 服务器端程序采用Go编写,客户端程序采用C#编写,在设计的过程中,使用到的工具如下所示:
+<br>
+  <br>
+<span style="margin-left:25px"></span> Go编译器版本为1.8,.NET Framework版本为4.5,MySQL Server的版本为5.1,Go代码编写环境使用Sublime Text 3,C#程序设计使用的IDE为Microsoft Visual Studio 2013,客户端程序测试环境为Windows 8.1 64位,服务器端程序测试环境为CentOS 6.3 64位。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 5.2	测试用例设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 为了保证软件的质量,在程序设计完成后,应当对程序进行测试。除了程序编码设计过程中进行的单元测试以外,在最后应当设计相应的功能测试用例。单元测试属于白盒测试,白盒测试是指已知程序的内部结构,设计的测试用例尽量将程序的逻辑分支进行覆盖的一种测试方法。而最后的功能测试则属于一种黑盒测试。黑盒测试指的是不知道程序的内部结构,但是可以了解程序的功能,清楚给定程序一定的输入,可以得到对应的输出。黑盒测试是检测程序功能能否达到预期的一种手段[19][20]。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 在测试用例设计部分,我们选取几个相对典型的测试用例进行说明。第一个功能测试用例为患者接诊中涉及到的部分测试用例。第二个功能测试用例为取消接诊中涉及到的部分测试用例。最后,一个测试用例是处方开具所涉及的部分测试用例。测试用例中的测试方法以及预期结果如表5-1所示。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 表 5‑1 部分功能测试用例设计
+<br>
+  <br>
+<span style="margin-left:25px"></span> 功能名称	位置	测试方法	预期结果
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者接诊	医生工作站-接诊-患者接诊	1、进入接诊页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入未登记过的患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、对患者进行接诊	程序提示患者不存在,要求先建立患者信息档案
+<br>
+  <br>
+<span style="margin-left:25px"></span> 患者接诊	医生工作站-接诊-患者接诊	1、进入接诊页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入已登记过的患者信息
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、对患者进行接诊	程序无错误提示,接诊成功
+<br>
+  <br>
+<span style="margin-left:25px"></span> 取消接诊	医生工作站-接诊-取消接诊	1、进入取消接诊页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入一个不存在的接诊单ID
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、取消接诊	程序提示无对应记录
+<br>
+  <br>
+<span style="margin-left:25px"></span> 取消接诊	医生工作站-接诊-取消接诊	1、进入取消接诊页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入一个已开具处置或处方的接诊单
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、取消接诊	程序提示已开具过收费项目,无法取消接诊
+<br>
+  <br>
+<span style="margin-left:25px"></span> 取消接诊	医生工作站-接诊-取消接诊	1、进入取消接诊页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入一个未开具过处置和处方的接诊单
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、取消接诊	程序无错误提示,取消接诊成功
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方开具	医生工作站-接诊-处方开具	1、进入处方开具页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入一个不存在的药品
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、开具处方	程序提示药品不存在
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方开具	医生工作站-接诊-处方开具	1、进入处方开具页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入一个存在的药品且药品数量低于库存量
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、开具处方	程序无错误提示,成功开具处方
+<br>
+  <br>
+<span style="margin-left:25px"></span> 处方开具	医生工作站-接诊-处方开具	1、进入处方开具页面
+<br>
+  <br>
+<span style="margin-left:25px"></span> 2、输入一个存在的药品且药品数量大于库存量
+<br>
+  <br>
+<span style="margin-left:25px"></span> 3、开具处方	程序提示所开具的药品数量高于库存量,无法开具
+<br>
+  <br>
+<span style="margin-left:25px"></span> 致 谢
+<br>
+  <br>
+<span style="margin-left:25px"></span> 本文的完成汇聚了来自导师、同学、以及家人的力量,论文的完成不能离开他们的支持。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 首先,要衷心感谢指导老师尹帆,尹老师在对我的论文的选题、写作思路、文章结构等方方面面给予了非常大的帮助。在论文的写作过程中,尹老师严谨的态度和负责的精神给我留下了十分深刻的印象。感谢尹老师给予我的帮助和教诲。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 其次,我要感谢同学和我的家人,他们在论文的写作过程中为我提供了很多的帮助和鼓励。论文的完成离不开他们的帮助。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 最后,向论文写作过程中所有阅读过的参考资料的作者致敬,祝我的老师、同学、家人们幸福快乐。
+<br>
+  <br>
+<span style="margin-left:25px"></span> 参考文献
+<br>
+  <br>
+<span style="margin-left:25px"></span> [1]	巴林左旗医院.巴林左旗医院概况.http://www.blzqyy.com/page/html/company.php,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [2]	百度百科.数据流图词条.http://baike.baidu.com/link?url=2Jah_B9OWQO_VcFV3q1qH20tG8s7sun19eFsnDmb-sUNtivQGgicNLafAoYmmtJnynQeCv6hzfgYkhyc2O5vo,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [3]	张海藩,牟永敏.软件工程导论.第6版.清华大学出版社,2013年:40-47页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [4]	百度百科.数据字典词条.http://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [5]	乔元斌.个体诊所管理系统的设计与实现.吉林大学,硕士学位论文.2014年:18-27页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [6]	王珊,萨师煊.数据库系统概论.第5版.高等教育出版社,2014年:215-238页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [7]	Sunmenggmail.E-R和数据库关系模式.http://blog.csdn.net/sunmenggmail/article/details/8022460,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [8]	OpenCountry.PowerDesigner画PDM.http://www.cnblogs.com/yingsong/p/5072488.html,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [9]	微软.关于Windows 7的常见问题解答.https://technet.microsoft.com/zh-cn/library/dd379463(v=ws.10).aspx,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [10]	百度百科.GUI词条.http://baike.baidu.com/link?url=LcadC1s80KfGXoo7b4XKGwooOcs5ZVZAEiBTMAZPle38g1r7lhNXoZeEz1XOCK4tDCcooC6uZ28CHmeDChJECK,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [11]	阮一峰.RESTful API设计指南.http://www.ruanyifeng.com/blog/2014/05/restful_api.html,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [12]	许氏伟,吕桂华.Go语言编程.第1版.人民邮电出版社,2012年:1-10页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [13]	Beego官方文档.Beego简介.https://beego.me/docs/intro/,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [14]	Christian Nagel,Jay Glynn,Morgan Skinner.C#高级编程.李铭.第8版.清华大学出版社,2013年:1244页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [15]	JSON官方文档.JSON介绍.http://wwwjson.org/json-zh.html,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [16]	Beego官方文档.CRUD操作.https://beego.me/docs/mvc/model/object.md,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [17]	Beego官方文档.项目路由设置.https://beego.me/docs/quickstart/router.md,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [18]	Beego官方文档.Controller运行机制.https://beego.me/docs/quickstart/controller.md,2017年4月30日
+<br>
+  <br>
+<span style="margin-left:25px"></span> [19]	董威.单元测试及测试工具的研究与应用.微型电脑应用,2008年,24期,23-26页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [20]	万年红,李翔.软件黑盒测试的方法与实践.计算机工程,2000年,12期,91-94页
+<br>
+  <br>
+<span style="margin-left:25px"></span> [21]
+<br>
+</div>
+
+<div style="margin-bottom:100px"></div>
+</body>
+</html>
